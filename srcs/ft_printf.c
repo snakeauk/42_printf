@@ -7,7 +7,13 @@ void	ft_init(t_format *f_fmt)
 
 void	ft_print(t_format f_fmt, const char *format)
 {
-    	
+    f_fmt->string = format;	
+    if (ft_strchr(f_fmt->string, '%'))
+    {
+        ft_putstr(f_fmt->string);
+        f_fmt->length = ft_strlen(f_fmt->string);
+    }
+    ft_putstr(f_fmt);
 }
 
 int		ft_printf(const char *format, ...)
