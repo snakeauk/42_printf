@@ -7,7 +7,7 @@ void	ft_init(t_format *f_fmt)
 
 void	ft_print(t_format f_fmt, const char *format)
 {
-	
+    	
 }
 
 int		ft_printf(const char *format, ...)
