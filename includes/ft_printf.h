@@ -9,6 +9,7 @@ typedef struct	s_format
 {
 	va_list	args;
 	int		length;
+    char    string;
 }	t_format;
 
 int		ft_printf(const char *, ...);

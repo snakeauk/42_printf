@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/16 15:12:31 by kinamura          #+#    #+#             */
-/*   Updated: 2024/04/30 02:48:44 by kinamura         ###   ########.fr       */
+/*   Created: 2024/04/16 13:50:02 by kinamura          #+#    #+#             */
+/*   Updated: 2024/04/29 12:40:06 by kinamura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-size_t	ft_strlen(const char *s)
+int	ft_isdigit(int c)
 {
-	size_t	count;
-
-	count = 0;
-	while (s[count])
-		count++;
-	return (count);
+	return (c >= '0' && c <= '9');
 }
