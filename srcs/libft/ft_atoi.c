@@ -10,7 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
+
+static int	ft_isspace(int c)
+{
+	return ((c >= 9 && c <= 13) || c == 32);
+}
 
 int	ft_atoi(const char *str)
 {

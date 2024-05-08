@@ -5,11 +5,11 @@ void ft_print_percent(t_format *f_fmt)
     int index;
 
     index = 0;
-    if (f_fmt->flag_index != 2)
+    if (f_fmt->index_flag != 2)
     {
         while (index < f_fmt->width -1)
         {
-            if  (f_fmt->flag_index != 1)
+            if  (f_fmt->index_flag != 1)
                 write(1, " ", 1);
             else
                 write(1, "0", 1);
@@ -19,10 +19,10 @@ void ft_print_percent(t_format *f_fmt)
         write(1, "%", 1);
         f_fmt->length++;
     }
-    else 
+    else
     {
         write(1, "%", 1);
-        while (index < f_fmt->width - 1)
+        while (index < (f_fmt->width - 1))
         {
             write(1, " ", 1);
             f_fmt->length++;
