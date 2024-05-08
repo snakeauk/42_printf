@@ -40,14 +40,6 @@ void    ft_printf_flag(t_format *f_fmt, int *index)
     }
 }
 
-void    ft_put_fmt(t_format *f_fmt, int index)
-{
-    int dot_index;
-
-    dot_index = -1;
-    f_fmt-> = ;
-}
-
 void    ft_printf_precision(t_format f_fmt, int index)
 {
     if (f_fmt->string[index] == '%')
