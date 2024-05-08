@@ -42,9 +42,7 @@ void    ft_printf_flag(t_format *f_fmt, int *index)
 
 void    ft_printf_precision(t_format f_fmt, int index)
 {
-    if (f_fmt->string[index] == '%')
-        ft_print_percent(f_fmt);
-    else if (f_fmt->string[index] == 'c')
+    if (f_fmt->string[index] == 'c')
         ft_printf_c(f_fmt);
     else if (f_fmt->string[index] == 's')
         ft_printf_s(f_fmt);
@@ -60,6 +58,8 @@ void    ft_printf_precision(t_format f_fmt, int index)
         ft_printf_x(f_fmt);
     else if (f_fmt->string[index] == 'X')
         ft_printf_X(f_fmt);
+    else if (f_fmt->string[index] == '%')
+        ft_print_percent(f_fmt);
     else if (f_fmt->width > 0)
         f_fmt->percent_error = 1;
 }
