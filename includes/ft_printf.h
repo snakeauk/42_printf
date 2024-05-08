@@ -8,13 +8,17 @@
 typedef struct	s_format
 {
 	va_list	args;
-	int		length;
     char    string;
     char    fmt;
-    long    width;
-    int     asterisk;
-    int     dot;
-    
+	int		length;
+    int     width;
+    int     digit;
+    int     base;
+    int     negative;
+    int     asterisk_flag;
+    int     dot_flag;
+    int     error_flag;
+    int     index_flag;
 }	t_format;
 
 int		ft_printf(const char *, ...);
