@@ -25,7 +25,7 @@ void    ft_printf_flag(t_format *f_fmt, int *index)
         f_fmt->asterisk_flag++;
     }
     if (ft_isdigit(f_fmt->string[index]))
-        f_fmt->width = ft_atoi(&f_fmt->string[*index], &*index);
+        f_fmt->width = ft_atoi(&f_fmt->string[*index]);
     if (f_fmt->string[*index] == '.')
     {
         *index++;
@@ -87,9 +87,9 @@ void    ft_printf_format(t_format *f_fmt)
     }
 }
 
-void	ft_print(t_format *f_fmt, const char *format)
+void	ft_printf_start(t_format *f_fmt, const char *format)
 {
-    f_fmt->string = format;	
+    f_fmt->string = format;
     if (ft_strchr(f_fmt->string, '%'))
     {
         ft_putstr(f_fmt->string);
@@ -113,7 +113,7 @@ int		ft_printf(const char *format, ...)
 	if (*format)
 	{
 		va_start(f_fmt->args, format);
-		ft_print(f_fmt, format);
+		ft_printf_start(f_fmt, format);
 		va_end(f_fmt->args);
 	}
 	free(f_fmt);
