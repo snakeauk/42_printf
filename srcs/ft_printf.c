@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-void    init(t_args *args)
+void    ft_init(t_args *args)
 {
     args->digit = 0;
     args->base = 0;

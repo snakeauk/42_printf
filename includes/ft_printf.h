@@ -33,6 +33,7 @@ typedef struct  s_args
 }   t_args;
 
 int     ft_printf(const char *format, ...);
+void    ft_init(t_args *args);
 
 
 
