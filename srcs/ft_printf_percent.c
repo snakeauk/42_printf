@@ -2,31 +2,31 @@
 
 void    ft_print_precision(t_format *f_fmt)
 {
-    size_t  index;
+    size_t  count;
 
-    index = 0;
+    count = 0;
     write(1, "%", 1);
-    while (index < (f_fmt->width - 1))
+    while (count < (f_fmt->width - 1))
     {
         write(1, " ", 1);
         f_fmt->length++;
-        index++;
+        count++;
     }
 }
 
 void    ft_print_add_config(t_format *f_fmt)
 {
-    size_t index;
+    size_t count;
 
-    index = 0;
-    while (index < f_fmt->width -1)
+    count = 0;
+    while (count < f_fmt->width -1)
     {
         if  (f_fmt->index_flag != 1)
             write(1, " ", 1);
         else
             write(1, "0", 1);
         f_fmt->length++;
-        index++;
+        count++;
     }
     write(1, "%", 1);
     f_fmt->length++;

@@ -24,12 +24,10 @@ char	*ft_itoa_base(int n, int base)
 {
 	long long	ln;
 	char			*str;
-    char            *base_num;
 	size_t			size;
 
 	ln = n;
 	size = ft_size(n, base);
-    base_num = "0123456789ABCDEF";
 	str = (char *)malloc((size + 1) * sizeof(char));
 	if (!str)
 		return (NULL);
@@ -43,11 +41,20 @@ char	*ft_itoa_base(int n, int base)
 		str[0] = '0';
 	while (ln > 0)
 	{
-        if (ln % base < 10)
-		    str[size--] = (ln % base) + '0';
-        else
-            str[size--] = ((ln % base) - 10) + 'A';
+		str[size--] = "0123456789ABCDEF"[ln % base];
 		ln /= base;
 	}
 	return (str);
 }
+// #include <stdio.h>
+// #include <string.h>
+// #include <stdlib.h>
+// int main(int ac, char **av)
+// {
+//     if (ac != 3)
+//         return (0);
+//     int n = atoi(av[1]);
+//     int base = atoi(av[2]);
+//     printf("%s", ft_itoa_base(n, base));
+//     return (0);
+// }
