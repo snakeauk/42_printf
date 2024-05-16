@@ -32,7 +32,7 @@ static size_t	ft_size(long long n)
 
 char	*ft_itoa(int n)
 {
-	long long	ln;
+	long long	    ln;
 	char			*str;
 	size_t			size;
 

@@ -36,10 +36,10 @@ int	ft_atoi(const char *str)
 		ln = 10 * ln + (*str - '0');
 		str++;
 		if (ft_isdigit(*str) && sign == 1
-			&& ((LONG_MAX - (*str - '0')) / 10 < ln || ln * 10 >= LONG_MAX))
+			&& (LONG_MAX - (*str - '0')) / 10 < ln)
 			return ((int)LONG_MAX);
 		else if (ft_isdigit(*str) && sign == -1
-			&& ((LONG_MIN + (*str - '0')) / 10 > -ln || ln * 10 < LONG_MIN))
+			&& (LONG_MIN + (*str - '0')) / 10 > -ln)
 			return ((int)LONG_MIN);
 	}
 	return (sign * (int)ln);
