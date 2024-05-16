@@ -1,18 +1,25 @@
 NAME = libftprintf.a
-CC = gcc
+SRCS = ft_printf.c ft_printf_utils.c ft_printf_conversions.c
+OBJS = $(SRC:.c=.o)
+LIBFT_PATH = ./srcs/libft/
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
-SRC = ft_printf.c ft_printf_bonus.c ft_printf_utils.c ft_printf_flags.c
-OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	ar rcs $@ $^
+$(NAME): $(OBJS)
+	make bonus $(LIBFT_PATH)
+	ar rcs $(NAME) $(OBJS)
 
 clean:
-	rm -f $(OBJ)
+	rm -f $(OBJS)
 
 fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+bonus: $(OBJS_BONUS)
+	ar rcs $(NAME) $(OBJS) $(OBJS_BONUS)
+
+.PHONY: all clean fclean re bonus

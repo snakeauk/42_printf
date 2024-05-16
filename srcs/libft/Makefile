@@ -3,6 +3,7 @@ CC = cc
 AR = ar rcs
 RM = rm -f
 CFLAGS = -Wall -Wextra -Werror
+INCLUDES_PATH = ../../includes/libft.h
 
 SRCS = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c \
        ft_isprint.c ft_strlen.c ft_memset.c ft_bzero.c \
@@ -28,7 +29,7 @@ endif
 all: $(NAME)
 
 .c.o: $(OBJS)
-	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
+	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o) -I $(INCLUDES_PATH)
 
 $(NAME): $(OBJS)
 	$(AR) $(NAME) $(OBJS)
