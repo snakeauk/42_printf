@@ -22,6 +22,77 @@ void    ft_init(t_args *args)
     args->error_flag = 0;
 }
 
+void    ft_printf_flag(t_args *args)
+{
+    
+}
+
+void    ft_printf_width(t_args *args)
+{
+
+}
+
+void    ft_printf_precision(t_args *args)
+{
+
+}
+
+void    ft_printf_modifier(t_args *args)
+{
+    if (args->fmt[args->index] == 'c')
+        ft_printf_c(args);
+    else if (args->fmt[args->index] == 's')
+        ft_printf_s(args);
+    else if (args->fmt[args->index] == 'p')
+        ft_printf_p(args);
+    else if (args->fmt[args->index] == 'd')
+        ft_printf_d(args);
+    else if (args->fmt[args->index] == 'i')
+        ft_printf_i(args);
+    else if (args->fmt[args->index] == 'u')
+        ft_printf_u(args);
+    else if (args->fmt[args->index] == 'x')
+        ft_printf_x(args);
+    else if (args->fmt[args->index] == 'X')
+        ft_printf_X(args);
+    else if (args->fmt[args->index] == '%')
+        ft_print_percent(args);
+    else if (args->width_flag > 0)
+        args->error_flag = 1;
+}
+
+void    ft_printf_format(t_args *args)
+{
+    while (args->fmt[args->index])
+    {
+        if (args->fmt[args->index] == '%')
+        {
+            args->index++;
+            ft_printf_flag(args);
+            ft_printf_width(args);
+            ft_printf_precision(args);
+            ft_printf_modifier(args);
+        }
+        else
+        {
+            ft_putchr(args->fmt[args->index]);
+            args->length++;
+        }
+        ft_init(args);
+        args->index++;
+    }
+}
+
+void    printf_start(t_args *args)
+{
+    if (!strchr(args->fmt, '%'))
+    {
+        ft_putstr(args->fmt);
+        args->length = ft_strlen(args->fmt);
+    }
+    ft_printf_format(args);
+}
+
 int ft_printf(const char *format, ...)
 {
     t_args  *args;

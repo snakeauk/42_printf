@@ -1,8 +1,8 @@
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-#include "libft.h"
 #include <stdarg.h>
+#include <unistd.h>
 
 #define BASE "0123456789ABCDEF"
 
@@ -47,9 +47,7 @@ void    ft_printf_u(t_args *args);
 void    ft_printf_x(t_args *args);
 void    ft_printf_large_x(t_args *args);
 void    ft_printf_percent(t_args *args);
-int     ft_outchar(const char c);
-int     ft_outstr(const char *str);
-size_t  ft_size(int n, int base);
+int     ft_outchar(char c);
 
 #endif
 
