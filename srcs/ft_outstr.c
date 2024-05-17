@@ -7,11 +7,11 @@ int ft_outstr(const char *str)
 
     ret = 0;
     index = 0;
-    if (!s)
+    if (!str)
         return (ret);
-    while (s[index])
+    while (str[index])
     {
-        ret += ft_outchar(s[index]);
+        ret += ft_outchar(str[index]);
         index++;
     }
     return (ret);

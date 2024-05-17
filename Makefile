@@ -20,6 +20,6 @@ clean:
 	$(RM) $(OBJS)
 
 fclean: clean
-	$(RM) $(NAME) $(LIBFT_PATH)/$(LIBFT_NAME)
+	$(RM) $(NAME)
 
 re: fclean all

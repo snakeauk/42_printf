@@ -1,12 +1,19 @@
 #include "ft_printf.h"
 
-void    ft_printf_d(t_args *args)
+int    ft_printf_d(t_args *args)
 {
     int num;
     int ret;
+    char *str;
 
     ret = 0;
-    num = va_start(args, int);
-    
+    num = va_arg(args->ap, int);
+    if (!num)
+    {
+        args->error_flag++;
+        return (ret);
+    }
+    str = ft_atoi_base(num, 10);
+    ret += ft_outstr(str);
     return (ret);
 }

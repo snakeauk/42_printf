@@ -1,6 +1,10 @@
 #include "ft_printf.h"
 
-void    ft_printf_percent(t_args *args)
+int    ft_printf_percent(t_args *args)
 {
+    int ret;
 
+    ret = 0;
+    ret += ft_putchar('%');
+    return (ret);
 }
