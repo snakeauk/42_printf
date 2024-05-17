@@ -66,6 +66,8 @@ void    ft_printf_format(t_args *args)
             // ft_printf_width(args);
             // ft_printf_precision(args);
             ft_printf_modifier(args);
+            if (args->error_flag)
+                return ;
         }
         else
             args->length += ft_outchar(args->fmt[args->index]);
@@ -104,6 +106,36 @@ int ft_printf(const char *format, ...)
     ft_printf_start(args);
     va_end(args->ap);
     ret = args->length;
+    if (args->error_flag)
+    {
+        free(args);
+        return (-1);
+    }
     free(args);
     return (ret);
 }
+
+// #include <stdio.h>
+// int main (void)
+// {
+//     char *s = "ft_printf:";
+//     char *line = "=======================================\n=======================================\n";
+//     while (*line)
+//     {
+//         write(1, line, 1);
+//         line++;
+//     }
+//     while (*s)
+//     {
+//         write(1, s, 1);
+//         s++;
+//     }
+//     ft_printf("%d",2147483649);
+//     printf("\n");
+///*-------------------------------------------*/
+//     printf("   printf:");
+///*-------------------------------------------*/
+//     printf("%d",2147483649);
+//     printf("\n");
+//     return (0);
+// }
