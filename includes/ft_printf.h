@@ -1,6 +1,7 @@
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
+#include "libft.h"
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdarg.h>
@@ -34,6 +35,7 @@ typedef struct  s_args
 }   t_args;
 
 int     ft_printf(const char *format, ...);
+void    ft_printf_start(t_args *args);
 void    ft_init(t_args *args);
 void    ft_printf_flag(t_args *args);
 void    ft_printf_width(t_args *args);
@@ -48,7 +50,7 @@ int     ft_printf_i(t_args *args);
 int     ft_printf_u(t_args *args);
 int     ft_printf_x(t_args *args);
 int     ft_printf_large_x(t_args *args);
-int     ft_printf_percent(t_args *args);
+int     ft_print_percent(t_args *args);
 size_t	ft_size(int n, int base);
 int     ft_outchar(char c);
 int     ft_outstr(const char *str);

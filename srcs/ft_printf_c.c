@@ -6,7 +6,7 @@ int ft_printf_c(t_args *args)
     char    c;
 
     ret = 0;
-    c = va_arg(args->ap, char);
+    c = va_arg(args->ap, int);
     if (!c)
     {
         args->error_flag++;

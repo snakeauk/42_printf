@@ -13,7 +13,7 @@ int    ft_printf_d(t_args *args)
         args->error_flag++;
         return (ret);
     }
-    str = ft_atoi_base(num, 10);
+    str = ft_itoa_base(num, 10);
     ret += ft_outstr(str);
     return (ret);
 }

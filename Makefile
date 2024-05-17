@@ -5,6 +5,7 @@ RM = rm -f
 AR = ar rcs
 LIBFT_PATH = ./srcs/libft/
 LIBFT_NAME = libft.a
+INCLUDES = -I ./includes
 SRCS = $(wildcard ./srcs/*.c)
 OBJS = $(patsubst ./srcs/%.c, ./srcs/%.o, $(SRCS))
 
@@ -16,7 +17,7 @@ $(NAME): $(OBJS)
 	$(AR) $(NAME) $(OBJS)
 
 ./srcs/%.o: ./srcs/%.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
 	$(MAKE) -C $(LIBFT_PATH) clean

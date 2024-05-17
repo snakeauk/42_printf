@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-void    ft_printf_p(t_args *args)
+int    ft_printf_p(t_args *args)
 {
     int     num;
     int     ret;
@@ -13,7 +13,7 @@ void    ft_printf_p(t_args *args)
         args->error_flag++;
         return (ret);
     }
-    str = ft_atoi_base(num, 16);
+    str = ft_itoa_base(num, 16);
     ret += ft_outstr(str);
     return (ret);
 }
