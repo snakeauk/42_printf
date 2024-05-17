@@ -15,7 +15,7 @@ int    ft_printf_x(t_args *args)
         args->error_flag++;
         return (ret);
     }
-    str = ft_atoi_base(num, 16);
+    str = ft_itoa_base(num, 16);
     while (str[index])
     {
         str[index] = ft_tolower(str[index]);

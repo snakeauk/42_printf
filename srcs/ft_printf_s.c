@@ -2,7 +2,6 @@
 
 int ft_printf_s(t_args *args)
 {
-    char    *str;
     int ret;
     char *str;
 

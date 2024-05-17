@@ -7,7 +7,8 @@ int    ft_print_percent(t_args *args)
     ret = 0;
     if (!ret)
     {
-        ft_
+        args->error_flag++;
+        return (ret);
     }
     ret += ft_outchar('%');
     return (ret);
