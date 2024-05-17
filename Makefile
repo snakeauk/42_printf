@@ -12,8 +12,8 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	make -C $(LIBFT_PATH)
-	mv $(LIBFT_DIR)/$(LIBFT_NAME) $(NAME)
-	$(AR) $(LIBFT_NAME) $@ $^
+	mv $(LIBFT_PATH)/$(LIBFT_NAME) $(NAME)
+	$(AR) $(NAME) $@ $^
 
 clean:
 	make -C $(LIBFT_PATH) clean
