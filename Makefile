@@ -5,21 +5,26 @@ RM = rm -f
 AR = ar rcs
 LIBFT_PATH = ./srcs/libft/
 LIBFT_NAME = libft.a
-SRCS = ft_printf.c ft_printf_bonus.c ft_printf_utils.c ft_printf_flags.c
-OBJS = $(SRC:.c=.o)
+SRCS = $(wildcard ./srcs/*.c)
+OBJS = $(patsubst ./srcs/%.c, ./srcs/%.o, $(SRCS))
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	make -C $(LIBFT_PATH)
+	$(MAKE) -C $(LIBFT_PATH)
 	mv $(LIBFT_PATH)/$(LIBFT_NAME) $(NAME)
-	$(AR) $(NAME) $@ $^
+	$(AR) $(NAME) $(OBJS)
+
+./srcs/%.o: ./srcs/%.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	make -C $(LIBFT_PATH) clean
+	$(MAKE) -C $(LIBFT_PATH) clean
 	$(RM) $(OBJS)
 
 fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
+
+.PHONY: clean fclean re

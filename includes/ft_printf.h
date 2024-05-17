@@ -1,7 +1,8 @@
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-#include "libft.h"
+#include <unistd.h>
+#include <stdlib.h>
 #include <stdarg.h>
 
 #define BASE "0123456789ABCDEF"
@@ -38,18 +39,18 @@ void    ft_printf_flag(t_args *args);
 void    ft_printf_width(t_args *args);
 void    ft_printf_precision(t_args *args);
 void    ft_printf_modifier(t_args *args);
-char	*ft_itoa_base(int n, int base);
-void    ft_printf_s(t_args *args);
-void    ft_printf_p(t_args *args);
-void    ft_printf_d(t_args *args);
-void    ft_printf_i(t_args *args);
-void    ft_printf_u(t_args *args);
-void    ft_printf_x(t_args *args);
-void    ft_printf_large_x(t_args *args);
-void    ft_printf_percent(t_args *args);
-int     ft_outchar(const char c);
+char    *ft_itoa_base(int n, int base);
+int     ft_printf_c(t_args *args);
+int     ft_printf_s(t_args *args);
+int     ft_printf_p(t_args *args);
+int     ft_printf_d(t_args *args);
+int     ft_printf_i(t_args *args);
+int     ft_printf_u(t_args *args);
+int     ft_printf_x(t_args *args);
+int     ft_printf_large_x(t_args *args);
+int     ft_printf_percent(t_args *args);
+size_t	ft_size(int n, int base);
+int     ft_outchar(char c);
 int     ft_outstr(const char *str);
-size_t  ft_size(int n, int base);
 
 #endif
-
