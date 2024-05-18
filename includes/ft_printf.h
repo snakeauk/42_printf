@@ -23,6 +23,7 @@ typedef struct  s_args
     int     zero_flag;
     int     comma_flag;
     int     asterisk_flag;
+    int     dot_flag;
     int     width_flag;
     int     precision_flag;
     int     hh_flag;

@@ -17,7 +17,7 @@ int    ft_printf_i(t_args *args)
     if (!str)
     {
         args->error_flag++;
-        return (ret);
+        str = "0";
     }
     ret += ft_outstr(str);
     free(str);

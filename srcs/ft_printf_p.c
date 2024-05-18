@@ -14,11 +14,14 @@ int    ft_printf_p(t_args *args)
         return (ret);
     }
     str = ft_itoa_base(num, 16);
+    if (str == NULL)
+        str = "0";
     if (!str)
     {
         args->error_flag++;
-        return (ret);
+        str = "0";
     }
+    ret += ft_outstr("0x");
     ret += ft_outstr(str);
     free(str);
     return (ret);

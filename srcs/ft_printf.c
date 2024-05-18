@@ -11,6 +11,7 @@ void    ft_init(t_args *args)
     args->zero_flag = 0;
     args->comma_flag = 0;
     args->asterisk_flag = 0;
+    args->dot_flag = 0;
     args->width_flag = 0;
     args->precision_flag = 0;
     args->hh_flag = 0;
@@ -22,21 +23,32 @@ void    ft_init(t_args *args)
     args->t_flag = 0;
     args->error_flag = 0;
 }
+void	ft_printf_flag(t_args *args)
+{
+	if (args->fmt[args->index] == '0' && args->fmt[args->index] == '-')
+		args->index++;
+	if (ft_strchr("#0- +", args->fmt[args->index]) >= 0)
+		args->index++;
+	if (args->fmt[args->index] == '*')
+	{
+		args->index++;
+		args->asterisk_flag++;
+	}
+	if (ft_isdigit(&args->fmt[args->index]))
+		args->width_flag = ft_atoi(&args->fmt[args->index]);
+	if (args->fmt[args->index] == '.')
+	{
+		args->index++;
+		args->dot_flag++;
+		args->width_flag = ft_atoi(&args->fmt[args->index]);
+	}
+	if (args->fmt[args->index] == '*')
+	{
+		args->index++;
+		args->asterisk_flag++;
+	}
+}
 
-// void    ft_printf_flags(t_args *args)
-// {
-//     if (args->fmt[args->index] == '-')
-//         args->minus_flag++;
-//     else if (args->fmt[args->index] == '+')
-//         args->plus_flag++;
-//     else if (args->fmt[args->index] == ' ')
-//         args->space_flag++;
-//     else if (args->fmt[args->index] == '#')
-//         args->sharp_flag++;
-//     else if (args->fmt[args->index] == ',')
-//         args->comma_flag++;
-//     return ;
-// }
 // void    ft_printf_width(t_args *args)
 // {
 //     while (ft_isdigit(args->fmt[args->index]))
@@ -136,8 +148,6 @@ int ft_printf(const char *format, ...)
 // #include <stdio.h>
 // int main (void)
 // {
-//     int ft_ret;
-//     int ret;
 //     char *s = "ft_printf:";
 //     char *line = "=======================================\n=======================================\n";
 //     while (*line)
@@ -150,13 +160,16 @@ int ft_printf(const char *format, ...)
 //         write(1, s, 1);
 //         s++;
 //     }
-//     ft_ret = ft_printf(" %c %c %c ", '2', '1', 0);
+//     int ft_ret;
+//     ft_ret = ft_printf(" %c %c %c ", '0', 0, '1');
 //     printf("\n");
 //     printf("   printf:");
 // /*-------------------------------------------*/
-//     ret = printf(" %c %c %c ", '2', '1', 0);
+//     int ret;
+//     ret = printf(" %c %c %c ", '0', 0, '1');
 // /*-------------------------------------------*/
 //     printf("\n");
-//     printf("ft_printf:%d\n   printf:%d\n", ft_ret, ret);
+//     printf("ft_printf:%d\n", ft_ret);
+//     printf("   printf:%d\n", ret);
 //     return (0);
 // }
