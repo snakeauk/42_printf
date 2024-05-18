@@ -14,6 +14,11 @@ int    ft_printf_i(t_args *args)
         return (ret);
     }
     str = ft_itoa_base(num, 10);
+    if (!str)
+    {
+        args->error_flag++;
+        return (ret);
+    }
     ret += ft_outstr(str);
     return (ret);
 }

@@ -8,6 +8,7 @@ void    ft_init(t_args *args)
     args->plus_flag = 0;
     args->space_flag = 0;
     args->sharp_flag = 0;
+    args->zero_flag = 0;
     args->comma_flag = 0;
     args->asterisk_flag = 0;
     args->width_flag = 0;
@@ -22,16 +23,33 @@ void    ft_init(t_args *args)
     args->error_flag = 0;
 }
 
-// void    ft_printf_flag(t_args *args)
+// void    ft_printf_flags(t_args *args)
 // {
+//     if (args->fmt[args->index] == '-')
+//         args->minus_flag++;
+//     else if (args->fmt[args->index] == '+')
+//         args->plus_flag++;
+//     else if (args->fmt[args->index] == ' ')
+//         args->space_flag++;
+//     else if (args->fmt[args->index] == '#')
+//         args->sharp_flag++;
+//     else if (args->fmt[args->index] == ',')
+//         args->comma_flag++;
+//     return ;
 // }
 // void    ft_printf_width(t_args *args)
 // {
+//     while (ft_isdigit(args->fmt[args->index]))
+//         args->width_flag += args->width_flag * 10 + (args->fmt[args->index] - '0');
+//     if (args->fmt[args->index] == '*')
+//         args->asterisk_flag++;
 // }
+
 // void    ft_printf_precision(t_args *args)
 // {
 // }
-void    ft_printf_modifier(t_args *args)
+
+void    ft_printf_type(t_args *args)
 {
     if (args->fmt[args->index] == 'c')
         args->length += ft_printf_c(args);
@@ -52,7 +70,7 @@ void    ft_printf_modifier(t_args *args)
     else if (args->fmt[args->index] == '%')
         args->length += ft_print_percent(args);
     else if (args->width_flag > 0)
-        args->error_flag = 1;
+        args->error_flag++;
 }
 
 void    ft_printf_format(t_args *args)
@@ -62,12 +80,12 @@ void    ft_printf_format(t_args *args)
         if (args->fmt[args->index] == '%')
         {
             args->index++;
-            // ft_printf_flag(args);
+            // ft_printf_flags(args);
             // ft_printf_width(args);
             // ft_printf_precision(args);
-            ft_printf_modifier(args);
+            ft_printf_type(args);
             if (args->error_flag)
-                return ;
+                args->length++;
         }
         else
             args->length += ft_outchar(args->fmt[args->index]);
@@ -106,36 +124,39 @@ int ft_printf(const char *format, ...)
     ft_printf_start(args);
     va_end(args->ap);
     ret = args->length;
-    if (args->error_flag)
-    {
-        free(args);
-        return (-1);
-    }
+    // if (args->error_flag)
+    // {
+    //     free(args);
+    //     return (-1);
+    // }
     free(args);
     return (ret);
 }
 
-// #include <stdio.h>
-// int main (void)
-// {
-//     char *s = "ft_printf:";
-//     char *line = "=======================================\n=======================================\n";
-//     while (*line)
-//     {
-//         write(1, line, 1);
-//         line++;
-//     }
-//     while (*s)
-//     {
-//         write(1, s, 1);
-//         s++;
-//     }
-//     ft_printf("%d",2147483649);
-//     printf("\n");
-///*-------------------------------------------*/
-//     printf("   printf:");
-///*-------------------------------------------*/
-//     printf("%d",2147483649);
-//     printf("\n");
-//     return (0);
-// }
+#include <stdio.h>
+int main (void)
+{
+    int ft_ret;
+    int ret;
+    char *s = "ft_printf:";
+    char *line = "=======================================\n=======================================\n";
+    while (*line)
+    {
+        write(1, line, 1);
+        line++;
+    }
+    while (*s)
+    {
+        write(1, s, 1);
+        s++;
+    }
+    ft_ret = ft_printf(" %c %c %c ", '2', '1', 0);
+    printf("\n");
+    printf("   printf:");
+/*-------------------------------------------*/
+    ret = printf(" %c %c %c ", '2', '1', 0);
+/*-------------------------------------------*/
+    printf("\n");
+    printf("ft_printf:%d\n   printf:%d\n", ft_ret, ret);
+    return (0);
+}

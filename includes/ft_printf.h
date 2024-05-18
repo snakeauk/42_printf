@@ -20,6 +20,7 @@ typedef struct  s_args
     int     plus_flag;
     int     space_flag;
     int     sharp_flag;
+    int     zero_flag;
     int     comma_flag;
     int     asterisk_flag;
     int     width_flag;
@@ -37,10 +38,10 @@ typedef struct  s_args
 int     ft_printf(const char *format, ...);
 void    ft_printf_start(t_args *args);
 void    ft_init(t_args *args);
-void    ft_printf_flag(t_args *args);
+void    ft_printf_flags(t_args *args);
 void    ft_printf_width(t_args *args);
 void    ft_printf_precision(t_args *args);
-void    ft_printf_modifier(t_args *args);
+void    ft_printf_type(t_args *args);
 char    *ft_itoa_base(int n, int base);
 int     ft_printf_c(t_args *args);
 int     ft_printf_s(t_args *args);
