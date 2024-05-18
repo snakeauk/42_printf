@@ -20,5 +20,6 @@ int    ft_printf_d(t_args *args)
         return (ret);
     }
     ret += ft_outstr(str);
+    free(str);
     return (ret);
 }

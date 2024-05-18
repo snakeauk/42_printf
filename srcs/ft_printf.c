@@ -133,30 +133,30 @@ int ft_printf(const char *format, ...)
     return (ret);
 }
 
-#include <stdio.h>
-int main (void)
-{
-    int ft_ret;
-    int ret;
-    char *s = "ft_printf:";
-    char *line = "=======================================\n=======================================\n";
-    while (*line)
-    {
-        write(1, line, 1);
-        line++;
-    }
-    while (*s)
-    {
-        write(1, s, 1);
-        s++;
-    }
-    ft_ret = ft_printf(" %c %c %c ", '2', '1', 0);
-    printf("\n");
-    printf("   printf:");
-/*-------------------------------------------*/
-    ret = printf(" %c %c %c ", '2', '1', 0);
-/*-------------------------------------------*/
-    printf("\n");
-    printf("ft_printf:%d\n   printf:%d\n", ft_ret, ret);
-    return (0);
-}
+// #include <stdio.h>
+// int main (void)
+// {
+//     int ft_ret;
+//     int ret;
+//     char *s = "ft_printf:";
+//     char *line = "=======================================\n=======================================\n";
+//     while (*line)
+//     {
+//         write(1, line, 1);
+//         line++;
+//     }
+//     while (*s)
+//     {
+//         write(1, s, 1);
+//         s++;
+//     }
+//     ft_ret = ft_printf(" %c %c %c ", '2', '1', 0);
+//     printf("\n");
+//     printf("   printf:");
+// /*-------------------------------------------*/
+//     ret = printf(" %c %c %c ", '2', '1', 0);
+// /*-------------------------------------------*/
+//     printf("\n");
+//     printf("ft_printf:%d\n   printf:%d\n", ft_ret, ret);
+//     return (0);
+// }

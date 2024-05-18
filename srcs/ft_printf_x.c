@@ -22,5 +22,6 @@ int    ft_printf_x(t_args *args)
         index++;
     }
     ret += ft_outstr(str);
+    free(str);
     return (ret);
 }
