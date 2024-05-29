@@ -2,10 +2,13 @@
 
 int    ft_outchar(const char c)
 {
+    int ret;
+
+    ret = 0;
     if (!c)
         return (0);
-    write(1, &c, 1);
-    return (1);
+    ret += write(1, &c, 1);
+    return (ret);
 }
 // #include <stdio.h>
 // int main(int ac, char **av)

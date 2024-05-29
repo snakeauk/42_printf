@@ -10,12 +10,7 @@ int    ft_printf_x(t_args *args)
     ret = 0;
     index = 0;
     num = va_arg(args->ap, int);
-    if (!num)
-    {
-        args->error_flag++;
-        return (ret);
-    }
-    str = ft_itoa_base(num, 16);
+    str = ft_itoa_base(num, "0123456789abcdef");
     while (str[index])
     {
         str[index] = ft_tolower(str[index]);

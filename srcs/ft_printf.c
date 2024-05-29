@@ -23,32 +23,31 @@ void    ft_init(t_args *args)
     args->t_flag = 0;
     args->error_flag = 0;
 }
-void	ft_printf_flag(t_args *args)
-{
-	if (args->fmt[args->index] == '0' && args->fmt[args->index] == '-')
-		args->index++;
-	if (ft_strchr("#0- +", args->fmt[args->index]) >= 0)
-		args->index++;
-	if (args->fmt[args->index] == '*')
-	{
-		args->index++;
-		args->asterisk_flag++;
-	}
-	if (ft_isdigit(&args->fmt[args->index]))
-		args->width_flag = ft_atoi(&args->fmt[args->index]);
-	if (args->fmt[args->index] == '.')
-	{
-		args->index++;
-		args->dot_flag++;
-		args->width_flag = ft_atoi(&args->fmt[args->index]);
-	}
-	if (args->fmt[args->index] == '*')
-	{
-		args->index++;
-		args->asterisk_flag++;
-	}
-}
-
+// void	ft_printf_flags(t_args *args)
+// {
+// 	if (args->fmt[args->index] == '0' && args->fmt[args->index] == '-')
+// 		args->index++;
+// 	if (ft_strchr("#0- +", args->fmt[args->index]) >= 0)
+// 		args->index++;
+// 	if (args->fmt[args->index] == '*')
+// 	{
+// 		args->index++;
+// 		args->asterisk_flag++;
+// 	}
+// 	if (ft_isdigit(&args->fmt[args->index]))
+// 		args->width_flag = ft_atoi(&args->fmt[args->index]);
+// 	if (args->fmt[args->index] == '.')
+// 	{
+// 		args->index++;
+// 		args->dot_flag++;
+// 		args->width_flag = ft_atoi(&args->fmt[args->index]);
+// 	}
+// 	if (args->fmt[args->index] == '*')
+// 	{
+// 		args->index++;
+// 		args->asterisk_flag++;
+// 	}
+// }
 // void    ft_printf_width(t_args *args)
 // {
 //     while (ft_isdigit(args->fmt[args->index]))
@@ -56,11 +55,9 @@ void	ft_printf_flag(t_args *args)
 //     if (args->fmt[args->index] == '*')
 //         args->asterisk_flag++;
 // }
-
 // void    ft_printf_precision(t_args *args)
 // {
 // }
-
 void    ft_printf_type(t_args *args)
 {
     if (args->fmt[args->index] == 'c')
@@ -136,11 +133,6 @@ int ft_printf(const char *format, ...)
     ft_printf_start(args);
     va_end(args->ap);
     ret = args->length;
-    // if (args->error_flag)
-    // {
-    //     free(args);
-    //     return (-1);
-    // }
     free(args);
     return (ret);
 }

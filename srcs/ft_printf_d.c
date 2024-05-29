@@ -8,13 +8,7 @@ int    ft_printf_d(t_args *args)
 
     ret = 0;
     num = va_arg(args->ap, int);
-    if (!num)
-    {
-        args->error_flag++;
-        ret++;
-        return (ret);
-    }
-    str = ft_itoa_base(num, 10);
+    str = ft_itoa_base(num, "0123456789");
     if (!str)
     {
         args->error_flag++;

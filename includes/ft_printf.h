@@ -43,7 +43,7 @@ void    ft_printf_flags(t_args *args);
 void    ft_printf_width(t_args *args);
 void    ft_printf_precision(t_args *args);
 void    ft_printf_type(t_args *args);
-char    *ft_itoa_base(int n, int base);
+char    *ft_itoa_base(int n, char *base);
 int     ft_printf_c(t_args *args);
 int     ft_printf_s(t_args *args);
 int     ft_printf_p(t_args *args);
