@@ -16,7 +16,6 @@ int ft_outstr(const char *str)
     }
     return (ret);
 }
-
 // #include <stdio.h>
 // int main(int ac, char **av)
 // {
