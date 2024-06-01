@@ -1,26 +1,26 @@
 #include "ft_printf.h"
 
-char *ft_itoa_base(long long ln, char *base)
+char *ft_itoa_unsigned_base(unsigned long long uln, char *base)
 {
     char *str;
     size_t size;
 
-    size = ft_size(ln, (int)ft_strlen(base));
+    size = ft_unsigned_size(uln, (int)ft_strlen(base));
     str = (char *)malloc((size + 1) * sizeof(char));
     if (!str)
         return (NULL);
     str[size--] = '\0';
-    if (ln < 0)
+    if (uln < 0)
     {
-        ln *= -1;
+        uln *= -1;
         str[0] = '-';
     }
-    if (ln == 0)
+    if (uln == 0)
         str[0] = '0';
-    while (ln > 0)
+    while (uln > 0)
     {
-        str[size--] = base[ln % (int)ft_strlen(base)];
-        ln /= (int)ft_strlen(base);
+        str[size--] = base[uln % (int)ft_strlen(base)];
+        uln /= (int)ft_strlen(base);
     }
     return (str);
 }

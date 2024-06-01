@@ -1,21 +1,19 @@
 #include "ft_printf.h"
 
-size_t	ft_size(long long ln, int base)
+size_t	ft_unsigned_size(unsigned long long uln, int base)
 {
 	size_t	size;
-    long long num;
 
-    num = ln;
 	size = 1;
-	if (num < 0)
+	if (uln < 0)
 	{
 		size++;
-		num *= -1;
+		uln *= -1;
 	}
-	while (num >= base)
+	while (uln >= base)
 	{
 		size++;
-		num /= base;
+		uln /= base;
 	}
 	return (size);
 }
