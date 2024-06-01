@@ -2,22 +2,19 @@
 
 int    ft_printf_large_x(t_args *args)
 {
-    int     num;
-    int     ret;
-    char    *str;
+    int                 ret;
+    unsigned long long  ulnum;
+    size_t              index;
+    char                *str;
 
     ret = 0;
-    num = va_arg(args->ap, int);
-    if (!num)
+    index = 0;
+    ulnum = va_arg(args->ap, unsigned long long);
+    str = ft_itoa_unsigned_base(ulnum, "0123456789ABCDEF");
+    while (str[index])
     {
-        args->error_flag++;
-        return (ret);
-    }
-    str = ft_itoa_base(num, "0123456789ABCDEF");
-    if (!str)
-    {
-        args->error_flag++;
-        return (ret);
+        str[index] = ft_tolower(str[index]);
+        index++;
     }
     ret += ft_outstr(str);
     free(str);

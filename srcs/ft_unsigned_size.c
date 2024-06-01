@@ -5,12 +5,7 @@ size_t	ft_unsigned_size(unsigned long long uln, int base)
 	size_t	size;
 
 	size = 1;
-	if (uln < 0)
-	{
-		size++;
-		uln *= -1;
-	}
-	while (uln >= base)
+	while (uln >= (unsigned long long)base)
 	{
 		size++;
 		uln /= base;
