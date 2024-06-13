@@ -77,7 +77,7 @@ void    ft_printf_type(t_args *args)
     else if (args->fmt[args->index] == 'X')
         args->length += ft_printf_large_x(args);
     else if (args->fmt[args->index] == '%')
-        args->length += ft_print_percent(args);
+        args->length += ft_outchar('%');
     else if (args->width_flag > 0)
         args->error_flag++;
 }
@@ -103,7 +103,7 @@ void    ft_printf_format(t_args *args)
     }
 }
 
-void    ft_printf_start(t_args *args)
+void    ft_vprintf(t_args *args)
 {
     if (!ft_strchr(args->fmt, '%'))
     {
@@ -130,7 +130,7 @@ int ft_printf(const char *format, ...)
     args->index = 0;
     args->fmt = (char *)format;
     va_start(args->ap, format);
-    ft_printf_start(args);
+    ft_vprintf(args);
     va_end(args->ap);
     ret = args->length;
     free(args);

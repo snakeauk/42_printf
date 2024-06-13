@@ -37,7 +37,7 @@ typedef struct  s_args
 }   t_args;
 
 int     ft_printf(const char *format, ...);
-void    ft_printf_start(t_args *args);
+void    ft_vprintf(t_args *args);
 void    ft_init(t_args *args);
 void    ft_printf_flags(t_args *args);
 void    ft_printf_width(t_args *args);
@@ -53,7 +53,6 @@ int     ft_printf_i(t_args *args);
 int     ft_printf_u(t_args *args);
 int     ft_printf_x(t_args *args);
 int     ft_printf_large_x(t_args *args);
-int     ft_print_percent(t_args *args);
 size_t	ft_size(long long ln, int base);
 size_t	ft_unsigned_size(unsigned long long n, int base);
 int     ft_outchar(char c);
