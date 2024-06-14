@@ -1,28 +1,22 @@
 #include "ft_printf.h"
 
-int    ft_printf_p(t_args *args)
+int     ft_printf_p(t_args *args)
 {
-    int     num;
-    int     ret;
-    char    *str;
+    int                 ret;
+    unsigned long long  num;
 
     ret = 0;
-    num = va_arg(args->ap, int);
-    if (!num)
-    {
-        args->error_flag++;
-        return (ret);
-    }
-    str = ft_itoa_base(num, "0123456789abcdef");
-    if (str == NULL)
-        str = "0";
-    if (!str)
-    {
-        args->error_flag++;
-        str = "0";
-    }
+    num = va_arg(args->ap, unsigned long long);
     ret += ft_outstr("0x");
-    ret += ft_outstr(str);
-    free(str);
+    ret += ft_putunbr_base(num, "0123456789abcdef");
     return (ret);
 }
+// #include <stdio.h>
+// int main(int ac, char **av)
+// {
+//     if (ac != 2)
+//         return (0);
+//     unsigned long long num = ft_atoi(av[1]);
+//     printf("\nft_putnbr_p:%d", ft_putnbr_p(num, "0123456789abcdef"));
+//     return (0);
+// }
