@@ -12,3 +12,12 @@ int ft_putunbr_base(unsigned long long num, char *base)
     ret += ft_outchar(base[num % base_len]);
     return(ret);
 }
+// #include <stdio.h>
+// int main(int ac, char **av)
+// {
+//     if (ac != 2)
+//         return (0);
+//     int num = ft_atoi(av[1]);
+//     printf("ft_putunbr_base:%d", ft_putunbr_base(num, "0123456789abcdef"));
+//     return(0);
+// }

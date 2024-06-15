@@ -7,8 +7,8 @@ int ft_printf_c(t_args *args)
 
     ret = 0;
     c = va_arg(args->ap, int);
-    if (!c)
-        args->error_flag++;
     ret += ft_outchar(c);
+    if (ret == -1)
+        args->error_flag++;
     return (ret);
 }

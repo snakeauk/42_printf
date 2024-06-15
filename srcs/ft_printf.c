@@ -21,7 +21,6 @@ void    ft_init(t_args *args)
     args->j_flag = 0;
     args->z_flag = 0;
     args->t_flag = 0;
-    args->error_flag = 0;
 }
 // void	ft_printf_flags(t_args *args)
 // {
@@ -93,8 +92,8 @@ void    ft_printf_format(t_args *args)
             // ft_printf_width(args);
             // ft_printf_precision(args);
             ft_printf_type(args);
-            if (args->error_flag)
-                args->length++;
+            // if (args->error_flag)
+            //     args->length++;
         }
         else
             args->length += ft_outchar(args->fmt[args->index]);
@@ -128,40 +127,42 @@ int ft_printf(const char *format, ...)
     ret = 0;
     args->length = 0;
     args->index = 0;
+    args->error_flag = 0;
     args->fmt = (char *)format;
     va_start(args->ap, format);
     ft_vprintf(args);
     va_end(args->ap);
     ret = args->length;
+    if (args->error_flag != 0)
+        ret = -1;
     free(args);
     return (ret);
 }
-
-#include <stdio.h>
-int main (void)
-{
-    char *s = "ft_printf:";
-    char *line = "=======================================\n=======================================\n";
-    while (*line)
-    {
-        write(1, line, 1);
-        line++;
-    }
-    while (*s)
-    {
-        write(1, s, 1);
-        s++;
-    }
-    int ft_ret;
-    ft_ret = ft_printf(" %c %c %c ", 0, '1', '2');
-    printf(":::\n");
-    printf("   printf:");
-/*-------------------------------------------*/
-    int ret;
-    ret = printf(" %c %c %c ", 0, '1', '2');
-/*-------------------------------------------*/
-    printf(":::\n");
-    printf("ft_printf:%d\n", ft_ret);
-    printf("   printf:%d\n", ret);
-    return (0);
-}
+// #include <stdio.h>
+// int main (void)
+// {
+//     char *s = "ft_printf:";
+//     char *line = "=======================================\n=======================================\n";
+//     while (*line)
+//     {
+//         write(1, line, 1);
+//         line++;
+//     }
+//     while (*s)
+//     {
+//         write(1, s, 1);
+//         s++;
+//     }
+//     int ft_ret;
+//     ft_ret = ft_printf(" %c %c %c ", 0, '1', '2');
+//     printf(":::\n");
+//     printf("   printf:");
+// /*-------------------------------------------*/
+//     int ret;
+//     ret = printf(" %c %c %c ", 0, '1', '2');
+// /*-------------------------------------------*/
+//     printf(":::\n");
+//     printf("ft_printf:%d\n", ft_ret);
+//     printf("   printf:%d\n", ret);
+//     return (0);
+// }

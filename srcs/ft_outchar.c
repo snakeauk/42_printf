@@ -5,9 +5,7 @@ int    ft_outchar(const char c)
     int ret;
 
     ret = 0;
-    if (!c)
-        return (0);
-    ret += write(1, &c, 1);
+    ret = write(1, &c, 1);
     return (ret);
 }
 // #include <stdio.h>
