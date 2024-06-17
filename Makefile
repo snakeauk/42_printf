@@ -6,14 +6,14 @@ AR = ar rcs
 INCLUDES = -I ./includes
 
 SRCS_DIR = ./srcs
-SRCS =	$(SRCS_DIR)/ft_outchar.c $(SRCS_DIR)/ft_outstr.c\
-		$(SRCS_DIR)/ft_printf_c.c $(SRCS_DIR)/ft_printf.c $(SRCS_DIR)/ft_printf_d.c\
-		$(SRCS_DIR)/ft_printf_large_x.c $(SRCS_DIR)/ft_printf_s.c\
-		$(SRCS_DIR)/ft_printf_x.c	$(SRCS_DIR)/ft_putunbr_base.c\
-		$(SRCS_DIR)/ft_printf_i.c $(SRCS_DIR)/ft_printf_p.c\
-		$(SRCS_DIR)/ft_printf_u.c $(SRCS_DIR)/ft_putnbr_base.c
+SRCS =	$(SRCS_DIR)/ft_outchar.c $(SRCS_DIR)/ft_outstr.c \
+		$(SRCS_DIR)/ft_printf_c.c $(SRCS_DIR)/ft_printf.c \
+		$(SRCS_DIR)/ft_printf_d.c $(SRCS_DIR)/ft_printf_large_x.c \
+		$(SRCS_DIR)/ft_printf_s.c $(SRCS_DIR)/ft_printf_x.c	\
+		$(SRCS_DIR)/ft_putunbr_base.c $(SRCS_DIR)/ft_printf_i.c \
+		$(SRCS_DIR)/ft_printf_p.c $(SRCS_DIR)/ft_printf_u.c \
+		$(SRCS_DIR)/ft_putnbr_base.c
 
-OBJ_DIR = obj/
 OBJS = $(SRCS:.c=.o)
 
 LIBFT_PATH = ./srcs/libft/

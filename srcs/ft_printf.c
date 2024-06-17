@@ -92,8 +92,6 @@ void    ft_printf_format(t_args *args)
             // ft_printf_width(args);
             // ft_printf_precision(args);
             ft_printf_type(args);
-            // if (args->error_flag)
-            //     args->length++;
         }
         else
             args->length += ft_outchar(args->fmt[args->index]);
