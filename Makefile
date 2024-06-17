@@ -28,7 +28,6 @@ INVERT = \033[7m
 LIGHT_BLUE = \033[94m
 YELLOW = \033[93m
 
-
 all: $(NAME)
 
 .c.o:
