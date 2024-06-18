@@ -45,7 +45,7 @@ clean:
 	@echo "$(BOLD)$(LIGHT_BLUE)Cleaning objects...$(RESET)"
 	@$(MAKE) -C $(LIBFT_PATH) clean
 	@$(RM) $(OBJS)
-	@echo "$(BOLD)$(LIGHT_BLUE)Complete clean $(NAME)!$(RESET)"
+	@echo "$(BOLD)$(LIGHT_BLUE)Complete clean!$(RESET)"
 
 fclean:
 	@echo "$(BOLD)$(LIGHT_BLUE)Cleaning objects...$(RESET)"
@@ -53,7 +53,7 @@ fclean:
 	@$(RM) $(OBJS)
 	@echo "$(BOLD)$(LIGHT_BLUE)Cleaning $(NAME)...$(RESET)"
 	@$(RM) $(NAME)
-	@echo "$(BOLD)$(LIGHT_BLUE)Complete fclean $(NAME)!$(RESET)"
+	@echo "$(BOLD)$(LIGHT_BLUE)Complete fclean!$(RESET)"
 
 re: fclean all
 
