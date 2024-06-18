@@ -39,10 +39,12 @@ typedef struct  s_args
 
 int     ft_printf(const char *format, ...);
 void    ft_vprintf(t_args *args);
-void    ft_init(t_args *args);
-void    ft_printf_flags(t_args *args);
-void    ft_printf_width(t_args *args);
-void    ft_printf_precision(t_args *args);
+int     ft_outchar(char c);
+int     ft_outstr(const char *str);
+// void    ft_init(t_args *args);
+// void    ft_printf_flags(t_args *args);
+// void    ft_printf_width(t_args *args);
+// void    ft_printf_precision(t_args *args);
 void    ft_printf_type(t_args *args);
 int     ft_printf_c(t_args *args);
 int     ft_printf_s(t_args *args);
@@ -54,9 +56,5 @@ int     ft_printf_x(t_args *args);
 int     ft_printf_large_x(t_args *args);
 int     ft_putnbr_base(long long num, char *base);
 int     ft_putunbr_base(unsigned long long num, char *base);
-size_t	ft_size(long long ln, int base);
-size_t	ft_unsigned_size(unsigned long long n, int base);
-int     ft_outchar(char c);
-int     ft_outstr(const char *str);
 
 #endif

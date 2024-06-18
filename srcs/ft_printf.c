@@ -1,26 +1,26 @@
 #include "ft_printf.h"
 
-void    ft_init(t_args *args)
-{
-    args->digit = 0;
-    args->minus_flag = 0;
-    args->plus_flag = 0;
-    args->space_flag = 0;
-    args->sharp_flag = 0;
-    args->zero_flag = 0;
-    args->comma_flag = 0;
-    args->asterisk_flag = 0;
-    args->dot_flag = 0;
-    args->width_flag = 0;
-    args->precision_flag = 0;
-    args->hh_flag = 0;
-    args->h_flag = 0;
-    args->l_flag = 0;
-    args->ll_flag = 0;
-    args->j_flag = 0;
-    args->z_flag = 0;
-    args->t_flag = 0;
-}
+// void    ft_init(t_args *args)
+// {
+//     args->digit = 0;
+//     args->minus_flag = 0;
+//     args->plus_flag = 0;
+//     args->space_flag = 0;
+//     args->sharp_flag = 0;
+//     args->zero_flag = 0;
+//     args->comma_flag = 0;
+//     args->asterisk_flag = 0;
+//     args->dot_flag = 0;
+//     args->width_flag = 0;
+//     args->precision_flag = 0;
+//     args->hh_flag = 0;
+//     args->h_flag = 0;
+//     args->l_flag = 0;
+//     args->ll_flag = 0;
+//     args->j_flag = 0;
+//     args->z_flag = 0;
+//     args->t_flag = 0;
+// }
 // void	ft_printf_flags(t_args *args)
 // {
 // 	if (args->fmt[args->index] == '0' && args->fmt[args->index] == '-')
@@ -94,7 +94,7 @@ void    ft_printf_format(t_args *args)
         }
         else
             args->length += ft_outchar(args->fmt[args->index]);
-        ft_init(args);
+        // ft_init(args);
         args->index++;
     }
 }
@@ -120,7 +120,7 @@ int ft_printf(const char *format, ...)
     args = (t_args *)malloc(sizeof(t_args));
     if (!args)
         return (-1);
-    ft_init(args);
+    // ft_init(args);
     args->length = 0;
     args->index = 0;
     args->error_flag = 0;
