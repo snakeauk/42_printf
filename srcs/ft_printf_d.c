@@ -7,6 +7,6 @@ int    ft_printf_d(t_args *args)
 
     ret = 0;
     num = va_arg(args->ap, int);
-    ret += ft_putnbr_base(num, "0123456789");
+    ret += ft_putnbr_base(num, BASE_10);
     return (ret);
 }

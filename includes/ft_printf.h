@@ -6,7 +6,9 @@
 #include <stdlib.h>
 #include <stdarg.h>
 
-#define BASE "0123456789ABCDEF"
+#define BASE_10 "0123456789"
+#define BASE_LOW_16 "0123456789abcdef"
+#define BASE_TOP_16 "0123456789ABCDEF"
 
 typedef struct  s_args  
 {
@@ -15,7 +17,6 @@ typedef struct  s_args
     size_t  index;
     int     length;
     int     digit;
-    int     base;
     int     minus_flag;
     int     plus_flag;
     int     space_flag;

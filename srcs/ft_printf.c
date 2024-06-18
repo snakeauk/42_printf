@@ -3,7 +3,6 @@
 void    ft_init(t_args *args)
 {
     args->digit = 0;
-    args->base = 0;
     args->minus_flag = 0;
     args->plus_flag = 0;
     args->space_flag = 0;
@@ -122,7 +121,6 @@ int ft_printf(const char *format, ...)
     if (!args)
         return (-1);
     ft_init(args);
-    ret = 0;
     args->length = 0;
     args->index = 0;
     args->error_flag = 0;
