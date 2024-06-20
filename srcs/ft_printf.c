@@ -76,7 +76,7 @@ void    ft_printf_type(t_args *args)
         args->length += ft_printf_large_x(args);
     else if (args->fmt[args->index] == '%')
         args->length += ft_outchar('%');
-    else if (args->width_flag > 0)
+    else
         args->error_flag++;
 }
 
@@ -103,8 +103,7 @@ void    ft_vprintf(t_args *args)
 {
     if (!ft_strchr(args->fmt, '%'))
     {
-        ft_outstr(args->fmt);
-        args->length = ft_strlen(args->fmt);
+        args->length = ft_outstr(args->fmt);
         return ;
     }
     ft_printf_format(args);
