@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/14 00:25:40 by kinamura          #+#    #+#             */
+/*   Updated: 2024/09/14 00:30:19 by kinamura         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
@@ -23,7 +35,9 @@ size_t	ft_uisize(unsigned int n, char *base);
 size_t	ft_isize(int num, char *base);
 size_t  ft_ullsize(unsigned long long unum, char *base);
 int     ft_printf_switch(const char *format, va_list *ap, int fd);
+int		ft_vdprintf(int fd, const char *format, va_list ap);
 int     ft_vprintf(const char *format, va_list ap);
+int		ft_dprintf(int fd, const char *format, ...);
 int     ft_printf(const char *format, ...);
 
 #endif

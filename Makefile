@@ -6,10 +6,7 @@ AR = ar rcs
 INCLUDES = -I ./includes
 
 SRCS_DIR = ./srcs
-SRCS	=	$(SRCS_DIR)/ft_fputi.c $(SRCS_DIR)/ft_fputu.c $(SRCS_DIR)/ft_itoa_base.c $(SRCS_DIR)/ft_ullsize.c \
-			$(SRCS_DIR)/ft_fputp.c $(SRCS_DIR)/ft_fputx.c $(SRCS_DIR)/ft_printf.c $(SRCS_DIR)/ft_ulltoa_base.c \
-			$(SRCS_DIR)/ft_uisize.c $(SRCS_DIR)/ft_uitoa.c $(SRCS_DIR)/ft_fputs.c $(SRCS_DIR)/ft_isize.c \
-			$(SRCS_DIR)/ft_putc.c $(SRCS_DIR)/ft_vprintf.c
+SRCS	=	$(wildcard $(SRCS_DIR)/*.c)
 
 OBJS = $(SRCS:.c=.o)
 
