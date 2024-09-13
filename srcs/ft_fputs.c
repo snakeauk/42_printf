@@ -6,7 +6,7 @@
 /*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 06:15:30 by kinamura          #+#    #+#             */
-/*   Updated: 2024/09/12 06:15:31 by kinamura         ###   ########.fr       */
+/*   Updated: 2024/09/13 15:54:41 by kinamura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,16 @@
 
 int ft_fputs(const char *s, int fd)
 {
-    ssize_t count;
-    while (s[count])
-        count++;
-    return (write(fd, s, count));
+	char	*str;
+	int		ret;
+
+	if (s == NULL)
+		return (ft_fputs("(null)", fd));
+	else
+		str = ft_strdup(s);
+	if (!str)
+        return (-1);
+	ret = write(fd, str, ft_strlen(str));
+	free(str);
+    return (ret);
 }
