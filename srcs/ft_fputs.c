@@ -6,13 +6,13 @@
 /*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 06:15:30 by kinamura          #+#    #+#             */
-/*   Updated: 2024/09/13 15:54:41 by kinamura         ###   ########.fr       */
+/*   Updated: 2024/09/14 01:22:54 by kinamura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_fputs(const char *s, int fd)
+int	ft_fputs(const char *s, int fd)
 {
 	char	*str;
 	int		ret;
@@ -22,8 +22,8 @@ int ft_fputs(const char *s, int fd)
 	else
 		str = ft_strdup(s);
 	if (!str)
-        return (-1);
+		return (-1);
 	ret = write(fd, str, ft_strlen(str));
 	free(str);
-    return (ret);
+	return (ret);
 }

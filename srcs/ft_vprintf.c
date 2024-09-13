@@ -6,22 +6,22 @@
 /*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 06:16:22 by kinamura          #+#    #+#             */
-/*   Updated: 2024/09/14 00:25:53 by kinamura         ###   ########.fr       */
+/*   Updated: 2024/09/14 01:21:22 by kinamura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_printf_switch(const char *format, va_list *ap, int fd)
+int	ft_printf_switch(const char *format, va_list *ap, int fd)
 {
-    if (*format == '%')
-        return (ft_putc('%', fd));
-    else if (*format == 'c')
-        return (ft_putc(va_arg(*ap, int), fd));
-    else if (*format == 's')
-        return (ft_fputs(va_arg(*ap, char *), fd));
-    else if (*format == 'u')
-        return (ft_fputu(va_arg(*ap, unsigned int), fd));
+	if (*format == '%')
+		return (ft_putc('%', fd));
+	else if (*format == 'c')
+		return (ft_putc(va_arg(*ap, int), fd));
+	else if (*format == 's')
+		return (ft_fputs(va_arg(*ap, char *), fd));
+	else if (*format == 'u')
+		return (ft_fputu(va_arg(*ap, unsigned int), fd));
 	else if (*format == 'd' || *format == 'i')
 		return (ft_fputi(va_arg(*ap, int), fd));
 	else if (*format == 'x' || *format == 'X')
@@ -32,28 +32,30 @@ int ft_printf_switch(const char *format, va_list *ap, int fd)
 		return (-1);
 }
 
-int ft_vprintf(const char *format, va_list ap)
+int	ft_vprintf(const char *format, va_list ap)
 {
-	int ret;
-	int w_ret;
+	int	ret;
+	int	w_ret;
 
 	ret = 0;
-    while (*format)
-    {
-        if (*format == '%')
-        {
-            format++;
-            if ((w_ret = ft_printf_switch(format, &ap, STDOUT_FILENO)) < 0)
-                return (-1);
-            ret += w_ret;
-        }
-        else
-        {
-            if ((w_ret = ft_putc(*format, STDOUT_FILENO)) < 0)
-                return (-1);
-            ret += w_ret;
-        }
-        format++;
-    }
-    return (ret);
+	while (*format)
+	{
+		if (*format == '%')
+		{
+			format++;
+			w_ret = ft_printf_switch(format, &ap, STDOUT_FILENO);
+			if (w_ret < 0)
+				return (-1);
+			ret += w_ret;
+		}
+		else
+		{
+			w_ret = ft_putc(*format, STDOUT_FILENO);
+			if (w_ret < 0)
+				return (-1);
+			ret += w_ret;
+		}
+		format++;
+	}
+	return (ret);
 }

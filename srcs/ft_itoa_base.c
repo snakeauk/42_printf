@@ -6,7 +6,7 @@
 /*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 00:26:25 by kinamura          #+#    #+#             */
-/*   Updated: 2024/09/14 00:26:28 by kinamura         ###   ########.fr       */
+/*   Updated: 2024/09/14 01:51:54 by kinamura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,11 @@ char	*ft_itoa_base(int n, char *base)
 	size_t		size;
 	size_t		base_len;
 
-	if (n == 0)
-		return (ft_strdup("0"));
 	ln = n;
-	size = ft_isize(n, base);
 	base_len = ft_strlen(base);
-	if ((ret = (char *)malloc(sizeof(char) * (size + 1))) == NULL)
+	size = ft_isize(n, base_len);
+	ret = (char *)malloc(sizeof(char) * (size + 1));
+	if (!ret)
 		return (NULL);
 	ret[size--] = '\0';
 	if (ln < 0)

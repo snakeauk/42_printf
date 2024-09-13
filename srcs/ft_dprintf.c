@@ -14,14 +14,14 @@
 
 int	ft_dprintf(int fd, const char *format, ...)
 {
-    va_list ap;
-    ssize_t ret;
+	va_list	ap;
+	ssize_t	ret;
 
-    ret = 0;
-    va_start(ap, format);
-    ret = ft_vdprintf(fd, format, ap);
-    va_end(ap);
-    if (ret < 0)
-        return (-1);
-    return (ret);
+	ret = 0;
+	va_start(ap, format);
+	ret = ft_vdprintf(fd, format, ap);
+	va_end(ap);
+	if (ret < 0)
+		return (-1);
+	return (ret);
 }

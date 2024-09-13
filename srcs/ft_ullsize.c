@@ -12,12 +12,12 @@
 
 #include "ft_printf.h"
 
-size_t ft_ullsize(unsigned long long unum, char *base)
+size_t	ft_ullsize(unsigned long long unum, char *base)
 {
 	int		ret;
-    size_t	base_len;
+	size_t	base_len;
 
-    base_len = ft_strlen(base);
+	base_len = ft_strlen(base);
 	ret = 0;
 	if (unum == 0)
 		return (1);
